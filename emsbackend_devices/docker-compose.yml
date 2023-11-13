@@ -1,0 +1,33 @@
+version: '3.4'
+
+services:
+  emsbackend:
+    image: ${DOCKER_REGISTRY-}emsbackend
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - 9090:80
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:80
+    volumes:
+      - ~/.aspnet/https:/https:ro
+    depends_on:
+      - db2
+    networks:
+      - benetwork
+
+  db2:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: SQLServer3
+    environment:
+        SA_USER: sa
+        SA_PASSWORD: "A&VeryComplex123Password2"
+        ACCEPT_EULA: Y
+    ports:
+        - "1435:1433"
+
+networks:
+  benetwork:
+    name: backend-network
