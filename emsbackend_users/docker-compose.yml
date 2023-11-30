@@ -15,8 +15,10 @@ services:
       - ~/.aspnet/https:/https:ro
     depends_on:
       - db
+      - rabbitmq2
     networks:
       - benetwork
+      
   db:
     image: mcr.microsoft.com/mssql/server:2022-latest
     container_name: SQLServer2
@@ -26,6 +28,21 @@ services:
         ACCEPT_EULA: Y
     ports:
         - "1434:1433"
+
+  rabbitmq2:
+     image: rabbitmq:3-management
+     hostname: "rabbitmq2"
+     labels:
+       NAME: "rabbitmq"
+     ports:
+       - '5672:5672'
+       - '15672:15672'
+       - "5673:5672"
+       - "15673:15672"
+     environment:
+        RABBITMQ_ERLANG_COOKIE: "MY_verylongcookieErlangStringSoIDOntGetAnyErrorsAnymoreheheh"
+     networks:
+        - benetwork
 networks:
   benetwork:
     name: backend-network

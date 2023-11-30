@@ -28,6 +28,8 @@ services:
     ports:
         - "1435:1433"
 
+
 networks:
   benetwork:
     name: backend-network
+    external: true

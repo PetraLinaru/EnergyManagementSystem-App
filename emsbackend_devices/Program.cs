@@ -73,6 +73,7 @@ builder.Services.AddCors(o =>
 
 //Add IUserService
 builder.Services.AddScoped<IDeviceService, DeviceService>();
+builder.Services.AddHostedService<RabbitMQConsumerService>();
 
 
 
@@ -85,7 +86,6 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
 
 app.UseRouting();
 

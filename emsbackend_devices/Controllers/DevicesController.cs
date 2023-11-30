@@ -18,9 +18,11 @@ public class DeviceController : ControllerBase
 {
 	private IDeviceService _deviceService;
 
+
 	public DeviceController(IDeviceService deviceService)
 	{
         _deviceService = deviceService;
+        
 	}
 
 	[Route("create-device-instance")]

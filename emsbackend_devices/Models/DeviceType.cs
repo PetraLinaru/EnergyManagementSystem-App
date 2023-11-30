@@ -17,12 +17,6 @@ namespace emsbackend.Models
 
      
 
-        ////one-one
-
-        //public int ID_Dev_Inst { get; set; }
-
-        //public DeviceInstance DeviceInstance { get; set; }
-
         public DeviceType()
 		{
 		}

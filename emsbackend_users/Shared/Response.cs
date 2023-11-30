@@ -24,7 +24,9 @@ namespace emsbackend.Shared
 
 		public List<StringifiedModel> appUsers { get; set; }
 
-		public List<IdentityUser> identityUsers { get; set; }
+		public List<AppUser> appUsers2 { get; set; }
+
+        public List<IdentityUser> identityUsers { get; set; }
 
 	
         public Response()

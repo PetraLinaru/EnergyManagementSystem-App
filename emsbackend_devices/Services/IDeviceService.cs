@@ -2,6 +2,7 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using System.Threading.Channels;
 using emsbackend.Data;
 using emsbackend.Models;
 using emsbackend.Shared;
@@ -10,7 +11,8 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.IdentityModel.Tokens;
-
+using Newtonsoft.Json;
+using RabbitMQ.Client;
 
 namespace emsbackend.Services
 {
@@ -41,6 +43,8 @@ namespace emsbackend.Services
         Task<Response> DeleteUser(string username);
 
         Task<Response> getUsers();
+
+        void SendDeviceTypes();
     }
 
     public class DeviceService : IDeviceService
@@ -56,6 +60,36 @@ namespace emsbackend.Services
         {
             
             _dbContext = dbContext;
+
+           
+        }
+
+        public async void SendDeviceTypes()
+        {
+            //var factory = new ConnectionFactory { Uri = new Uri("amqp://guest:guest@rabbitmq3:5674") };
+
+            //// create connection  
+            //IConnection _connection = factory.CreateConnection();
+
+            //// create channel  
+            //IModel _channel = _connection.CreateModel();
+
+            //_channel.QueueDeclare("deviceQueue", durable: true, exclusive: false);
+
+            //List<DeviceType> deviceTypes = _dbContext.DeviceTypes.ToList();
+
+
+            //foreach (var deviceType in deviceTypes)
+            //{
+            //    string jsonString = JsonConvert.SerializeObject(deviceType);
+            //    var body = Encoding.UTF8.GetBytes(jsonString);
+
+            //    _channel.BasicPublish(exchange: "", routingKey: "deviceQueue", basicProperties: null, body: body);
+            //    Console.WriteLine($"Sent message from DEVICE QUEUE: {body}");
+
+            //}
+            //_channel.Close();
+            //_connection.Close();
 
         }
 

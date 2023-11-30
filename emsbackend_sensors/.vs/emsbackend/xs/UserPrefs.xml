@@ -1,0 +1,54 @@
+﻿<Properties StartupConfiguration="{998F6514-FA1F-4EC2-8B48-F379D7ABE482}|Default">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+  <DisabledProjects>
+    <String>docker-compose.dcproj</String>
+  </DisabledProjects>
+  <MonoDevelop.Ide.Workbench ActiveDocument="Services/RabbitMQConsumerService.cs">
+    <Files>
+      <File FileName="obj/Debug/net6.0/.NETCoreApp,Version=v6.0.AssemblyAttributes.cs" />
+      <File FileName="Program.cs" />
+      <File FileName="Properties/launchSettings.json" />
+      <File FileName="appsettings.json" />
+      <File FileName="Shared/Response.cs" />
+      <File FileName="Services/ISensorService.cs" Line="164" Column="22" />
+      <File FileName="Controllers/SensorController.cs" Line="46" Column="1" />
+      <File FileName="Dockerfile" />
+      <File FileName="docker-compose.yml" Line="17" Column="18" />
+      <File FileName=".dockerignore" />
+      <File FileName="docker-compose.override.yml" />
+      <File FileName="Services/RabbitMQConsumerService.cs" Line="88" Column="85" />
+      <File FileName="Shared/RabbitMQMessage.cs" />
+      <File FileName="Data/SensorAPIDbContext.cs" />
+      <File FileName="Shared/SensorRequest.cs" />
+      <File FileName="Models/Sensor.cs" />
+      <File FileName="Shared/StringifiedModel.cs" />
+      <File FileName="Shared/SensorValueForUserRequest.cs" />
+      <File FileName="../emsbackend_devices/Services/IRabbitMQConsumerService.cs" />
+      <File FileName="../emsbackend_devices/Dockerfile" />
+      <File FileName="Models/UserDevice.cs" />
+      <File FileName="Models/HourlyConsumption.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="emsbackend" expanded="True">
+            <Node name="emsbackend">
+              <Node name="Controllers" expanded="True" />
+              <Node name="Models" expanded="True" />
+              <Node name="Services" expanded="True">
+                <Node name="RabbitMQConsumerService.cs" selected="True" />
+              </Node>
+              <Node name="Shared" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.emsbackend PreferredExecutionTarget="/Applications/Brave Browser.app" />
+</Properties>

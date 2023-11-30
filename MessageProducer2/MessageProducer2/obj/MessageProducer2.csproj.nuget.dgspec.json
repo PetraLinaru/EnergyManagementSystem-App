@@ -1,0 +1,75 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/petralinaru/Desktop/DS2023_30644_Linaru_Petra_1/MessageProducer2/MessageProducer2/MessageProducer2.csproj": {}
+  },
+  "projects": {
+    "/Users/petralinaru/Desktop/DS2023_30644_Linaru_Petra_1/MessageProducer2/MessageProducer2/MessageProducer2.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/petralinaru/Desktop/DS2023_30644_Linaru_Petra_1/MessageProducer2/MessageProducer2/MessageProducer2.csproj",
+        "projectName": "MessageProducer2",
+        "projectPath": "/Users/petralinaru/Desktop/DS2023_30644_Linaru_Petra_1/MessageProducer2/MessageProducer2/MessageProducer2.csproj",
+        "packagesPath": "/Users/petralinaru/.nuget/packages/",
+        "outputPath": "/Users/petralinaru/Desktop/DS2023_30644_Linaru_Petra_1/MessageProducer2/MessageProducer2/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/petralinaru/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "CsvHelper": {
+              "target": "Package",
+              "version": "[30.0.1, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            },
+            "RabbitMQ.Client": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.402/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

@@ -71,10 +71,12 @@ namespace emsbackend.Services
 					IsSuccess = false
 				};
 
+			var generatedGuid = Guid.NewGuid();
 
-			var identityUser = new AppUser
+            var identityUser = new AppUser
 			{
-				Email = model.Email,
+                Id = generatedGuid.ToString(),
+                Email = model.Email,
 				UserName = model.Username,
 				Password = model.Password,
 				Address = model.Address,
@@ -92,18 +94,6 @@ namespace emsbackend.Services
             
             await _userManager.AddToRoleAsync(identityUser, "User");
 
-			var generatedGuid = Guid.NewGuid();
-
-            AppUser appUser = new AppUser
-			{
-				Id = generatedGuid.ToString(),
-				User = model.Username,
-				Password = model.Password,
-				Address = model.Address,
-				Email = model.Email
-
-			};
-
 		
 
 			if(result.Succeeded)
@@ -113,13 +103,7 @@ namespace emsbackend.Services
 					Message = "User created successfully!",
 					RedirectURL = "/user",
 					IsSuccess=true,
-				    appUser = new AppUser
-                    {
-                        User = model.Username,
-                        Password = model.Password,
-                        Email = model.Email,
-                        Address = model.Address
-                    }
+				    appUser = identityUser
                 };
 			}
 			return new Response
@@ -345,7 +329,7 @@ namespace emsbackend.Services
 
 		public async Task<Response> GetAllUsers()
 		{
-			var users = _context.AppUsers;
+			List<AppUser> users = _context.AppUsers.ToList();
 
 
 
@@ -366,7 +350,7 @@ namespace emsbackend.Services
                 {
 					StringifiedModel appUser = new StringifiedModel
 					{
-					
+                        
                         Username = identityUser.UserName,
                         Email = identityUser.Email,
 						AppUserID=identityUser.Id,
@@ -410,6 +394,7 @@ namespace emsbackend.Services
 				IsSuccess=true,
 				appUser = new AppUser
 				{
+					Id=user.Id,
 					Email = user.Email,
 					User = user.UserName
 				}

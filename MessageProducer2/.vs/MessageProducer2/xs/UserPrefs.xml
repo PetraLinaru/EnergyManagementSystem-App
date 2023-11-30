@@ -1,0 +1,26 @@
+﻿<Properties StartupConfiguration="{9CE78C13-61E6-43C1-B467-89AA4CACEFE1}|Default">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.MessageProducer2 PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="MessageProducer2/Program.cs">
+    <Files>
+      <File FileName="MessageProducer2/Program.cs" Line="64" Column="35" />
+      <File FileName="MessageProducer2/MessageProducer.csv" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="MessageProducer2" expanded="True">
+            <Node name="MessageProducer2">
+              <Node name="Dependencies" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+</Properties>

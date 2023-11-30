@@ -22,49 +22,40 @@ using Newtonsoft.Json.Linq;
 public class AppUsersController : Controller
 {
 	private IAppUserService _appUserService;
+
+    private IRabbitMQProducerService _rabbitMQProducerService;
+
     public string URL = "http://emsbackend_devices-emsbackend-1:9090/api/Device/create-user";
 
-    public AppUsersController(IAppUserService appUserService)
+    public AppUsersController(IAppUserService appUserService, IRabbitMQProducerService rabbitMQProducerService)
 	{
 		_appUserService = appUserService;
-	}
+
+        _rabbitMQProducerService = rabbitMQProducerService;
+
+    }
 
 	[Route("create-user")]
     [HttpPost]
 	public async Task<IActionResult> CreateUser(RegisterModel model)
     {
         if (ModelState.IsValid)
+
         {
             var result = await _appUserService.RegisterUserAsync(model);
 
             if (result.IsSuccess)
+
             {
-                var data = new
+                var intermediary = await _appUserService.GetUserByUsernameAsync(model.Username);
+                var innerResult = await _rabbitMQProducerService.ProduceAsync(intermediary.appUser.Id);
+                
+                if (innerResult.IsSuccess == true)
                 {
-                    ID_User = result.appUser.Id,
-                    Username = result.appUser.UserName
-                };
-                var json = JsonConvert.SerializeObject(data);
-                var data2 = new StringContent(json, Encoding.UTF8, "application/json");
-
-                var request = new HttpRequestMessage(HttpMethod.Post, URL);
-                request.Headers.Accept.Clear();
-                request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                request.Content = new StringContent(json, Encoding.UTF8, "application/json");
-                using var HttpClient = new HttpClient();
-                var response = await HttpClient.PostAsync(URL, data2);
-                return Ok(response);                //using (var httpClient = new HttpClient())
-                //{
-                //    var response2 = await httpClient.PostAsync(URL, data);
-
-                //    httpClient.Timeout = TimeSpan.FromSeconds(30);
-                //    return Ok(response2);
-
-
-                //}
-
-
-
+                    return Ok(result);
+                }
+                else
+                    return BadRequest("Something went wrong");
             }
             else
                 return BadRequest(result);
@@ -81,6 +72,7 @@ public class AppUsersController : Controller
         if (ModelState.IsValid)
         {
             var result = await _appUserService.UpdateUserAsync(updatedModel);
+            
 
             if (result.IsSuccess)
             {

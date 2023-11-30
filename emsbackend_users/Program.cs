@@ -77,8 +77,7 @@ builder.Services.AddCors(o =>
 
 //Add IUserService
 builder.Services.AddScoped<IAppUserService, AppUserService>();
-
-
+builder.Services.AddScoped<IRabbitMQProducerService, RabbitMQProducerService>();
 
 
 var app = builder.Build();
